@@ -1,0 +1,29 @@
+/* Swiper navigatsiya tugmalari va nuqtalari */
+.swiper-button-next,
+.swiper-button-prev {
+  color: red;
+  background-color: #1d1d1dcc;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.swiper-button-next::after{
+  font-size: 25px;
+}
+.swiper-button-prev::after{
+  font-size: 25px;
+}
+
+.swiper-pagination-bullet {
+  background-color: white;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: red;
+}
+.swiper{
+  border-radius: 20px;
+  padding: 10px 0;
+  
+}
