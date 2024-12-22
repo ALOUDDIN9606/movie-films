@@ -4,18 +4,35 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-// import "./swipper.css";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 const Carousel = ({ data = { results: [] } }) => {
+  console.log(data);
+  
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   if (!data || !data.results) {
     return <div>Loading...</div>;
   }
 
+  const handleOnlineClick = (title) => {
+    if (title) {
+      const searchQuery = encodeURIComponent(`${title} trailer`); // Nomga "trailer" qo'shiladi
+      const youtubeSearchURL = `https://www.youtube.com/results?search_query=${searchQuery}`;
+      window.open(youtubeSearchURL, "_blank");
+    }
+  };
+
+  const handleOnlineClick2 = (title) => {
+    if (title) {
+      const searchQuery = encodeURIComponent(title); // Nomni URL formatiga moslashtirish
+      const googleSearchURL = `https://www.google.com/search?q=${searchQuery}`;
+      window.open(googleSearchURL, "_blank"); // Yangi tabda ochish
+    }
+  };
+
   return (
-    <div className="container my-5">
+    <div className="container">
       <Swiper
         style={{
           "--swiper-navigation-color": "#fff",
@@ -30,9 +47,26 @@ const Carousel = ({ data = { results: [] } }) => {
       >
         {data.results.map((item) => (
           <SwiperSlide key={item.id}>
-            <img className=" relative" src={`${import.meta.env.VITE_IMAGE_URL}${item?.backdrop_path}`} alt={item.title} />
-            <h2 className="absolute bottom-20 left-4 text-[35px]">{item.title}</h2>
-            <button className="bg-red-600 px-12 py-2 absolute bottom-4 left-4 rounded-md">Online</button>
+            <img
+              className="relative"
+              src={`${import.meta.env.VITE_IMAGE_URL}${item?.backdrop_path}`}
+              alt={item.title}
+            />
+            <h2 className="absolute bottom-20 left-4 text-[35px]">
+              {item.title}
+            </h2>
+            <button
+              className="bg-green-600 px-12 py-2 absolute bottom-6 left-4 rounded-md"
+              onClick={() => handleOnlineClick(item.title)} // Kino nomini yuborish
+            >
+              Trailer
+            </button>
+            <button
+              className="bg-red-600 px-12 py-2 absolute bottom-6 left-44 rounded-md"
+              onClick={() => handleOnlineClick2(item.title)} // Kino nomini yuborish
+            >
+              Online
+            </button>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -49,7 +83,10 @@ const Carousel = ({ data = { results: [] } }) => {
       >
         {data.results.map((item) => (
           <SwiperSlide key={item.id}>
-            <img src={`${import.meta.env.VITE_IMAGE_URL}${item?.backdrop_path}`} alt={item.title} />
+            <img
+              src={`${import.meta.env.VITE_IMAGE_URL}${item?.backdrop_path}`}
+              alt={item.title}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

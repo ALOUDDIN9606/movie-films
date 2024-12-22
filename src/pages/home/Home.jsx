@@ -1,11 +1,13 @@
 import { request } from '@/api'
 import Carousel from '@/components/carousel/Carousel'
+import Footer from '@/components/footer/Footer'
 import Header from '@/components/header/Header'
 import Movies from '@/components/movies/Movies'
 import React, { memo, useEffect, useState } from 'react'
 
 const Home = () => {
   const [data, setData] = useState(null)
+
   useEffect(() => {
     request("/discover/movie")
         .then((res) => {
@@ -14,10 +16,11 @@ const Home = () => {
   }, [])
 
   return (
-    <div className='bg-slate-950 text-white dark:text-white'>
+    <div className='bg-black text-white'>
         <Header />
         <Carousel data={data}/>
         <Movies data={data}/>
+        <Footer />
     </div>
   )
 }

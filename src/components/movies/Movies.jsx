@@ -9,6 +9,8 @@ import Moviesitem from "./Moviesitem";
 import "./swiper.css"
 
 const Movies = ({ data }) => {
+  console.log(data);
+  
   return (
     <div className="container py-20">
       <Swiper
