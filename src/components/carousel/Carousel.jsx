@@ -12,8 +12,16 @@ const Carousel = ({ data = { results: [] } }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   if (!data || !data.results) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-[600px]">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 border-4 border-t-transparent border-red-500 rounded-full animate-spin"></div>
+          <p className="text-lg text-gray-500">Loading...</p>
+        </div>
+      </div>
+    );
   }
+  
 
   const handleOnlineClick = (title) => {
     if (title) {
@@ -25,14 +33,14 @@ const Carousel = ({ data = { results: [] } }) => {
 
   const handleOnlineClick2 = (title) => {
     if (title) {
-      const searchQuery = encodeURIComponent(title); // Nomni URL formatiga moslashtirish
+      const searchQuery = encodeURIComponent(title);
       const googleSearchURL = `https://www.google.com/search?q=${searchQuery}`;
-      window.open(googleSearchURL, "_blank"); // Yangi tabda ochish
+      window.open(googleSearchURL, "_blank"); 
     }
   };
 
   return (
-    <div className="container">
+    <div className="container pb-16">
       <Swiper
         style={{
           "--swiper-navigation-color": "#fff",
@@ -56,14 +64,14 @@ const Carousel = ({ data = { results: [] } }) => {
               {item.title}
             </h2>
             <button
-              className="bg-green-600 px-12 py-2 absolute bottom-6 left-4 rounded-md"
-              onClick={() => handleOnlineClick(item.title)} // Kino nomini yuborish
+              className="bg-red-600 hover:bg-red-800 text-[18px] px-12 py-2 absolute bottom-6 left-4 rounded-md"
+              onClick={() => handleOnlineClick(item.title)} 
             >
               Trailer
             </button>
             <button
-              className="bg-red-600 px-12 py-2 absolute bottom-6 left-44 rounded-md"
-              onClick={() => handleOnlineClick2(item.title)} // Kino nomini yuborish
+              className="bg-indigo-600 text-[18px] px-12 py-2 absolute bottom-6 left-44 rounded-md hover:bg-indigo-900"
+              onClick={() => handleOnlineClick2(item.title)} 
             >
               Online
             </button>

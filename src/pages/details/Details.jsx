@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { request } from "../../api";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import Movies from "../../components/movies/Movies";
 import { FaHome } from "react-icons/fa";
 
 const Details = () => {
@@ -89,7 +86,7 @@ const Details = () => {
   const formatTime = (minutes) => {
     const hours = Math.floor(minutes / 60);
     const remainingMinutes = minutes % 60;
-    return `${hours}ч ${remainingMinutes}м / ${minutes} минут`;
+    return `${hours}ч ${remainingMinutes}м / ${minutes} minutes`;
   };
 
   useEffect(() => {
@@ -98,7 +95,6 @@ const Details = () => {
 
   return (
     <div className="bg-black text-white">
-      <Header />
       <div className="flex flex-col items-center">
         <div className="w-full max-w-[1360px] h-[640px] relative">
           <img
@@ -108,7 +104,7 @@ const Details = () => {
           />
           <button
             onClick={() => navigate("/")}
-            className="px-6 py-4 mt-12 flex items-center gap-3 justify-center bg-violet-950 rounded-md"
+            className="px-6 py-4 mt-3 flex items-center gap-3 justify-center bg-violet-950 rounded-md"
           >
             <FaHome className="text-[20px]"/><span>Home</span>
           </button>
@@ -119,7 +115,7 @@ const Details = () => {
             <p className="text-sm md:text-lg mb-6">
               {new Date(data?.release_date).getFullYear()} • {translatedData.genres.slice(0, 2).join(", ")} • {formatTime(data?.runtime)}
             </p>
-            <button className="bg-green-600 hover:bg-violet-900 text-white py-3 px-16 rounded-md shadow-lg">
+            <button className="bg-orange-700 hover:bg-red-400 text-white py-3 px-16 rounded-md shadow-lg">
             Buy a ticket
             </button>
           </div>
@@ -140,7 +136,7 @@ const Details = () => {
               {((data?.vote_average / 100) * 90).toFixed(1)}
             </button>
             <button className="border border-gray-700 px-4 py-2 rounded-xl text-xl font-bold">
-              {data?.vote_average?.toFixed(1)}
+              {data?.vote_average?.toFixed(1)}+
             </button>
           </div>
 
@@ -183,15 +179,16 @@ const Details = () => {
             <p className="mt-6 text-gray-400 leading-relaxed">{data?.overview}</p>
           </div>
 
-          <button className="mt-6 bg-green-500 w-full px-2 py-3 rounded-xl text-[20px]">
+          <button className="mt-6 bg-fuchsia-800 hover:bg-red-600 w-full px-2 py-3 rounded-xl text-[20px]">
           Buy a ticket
           </button>
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };
 
 export default Details;
+
+
