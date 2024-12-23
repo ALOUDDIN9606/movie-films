@@ -93,6 +93,22 @@ const Details = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleOnlineClick = (title) => {
+    if (title) {
+      const searchQuery = encodeURIComponent(`${title} trailer`);
+      const youtubeSearchURL = `https://www.youtube.com/results?search_query=${searchQuery}`;
+      window.open(youtubeSearchURL, "_blank");
+    }
+  };
+
+  const handleOnlineClick2 = (title) => {
+    if (title) {
+      const searchQuery = encodeURIComponent(title);
+      const googleSearchURL = `https://www.google.com/search?q=${searchQuery}`;
+      window.open(googleSearchURL, "_blank"); 
+    }
+  };
+
   return (
     <div className="bg-black text-white">
       <div className="flex flex-col items-center">
@@ -102,12 +118,7 @@ const Details = () => {
             src={`${import.meta.env.VITE_IMAGE_URL}${data?.backdrop_path}`}
             alt={data?.title || "Movie Poster"}
           />
-          <button
-            onClick={() => navigate("/")}
-            className="px-6 py-4 mt-3 flex items-center gap-3 justify-center bg-violet-950 rounded-md"
-          >
-            <FaHome className="text-[20px]"/><span>Home</span>
-          </button>
+          
           <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-4">
               {data?.title}
@@ -115,9 +126,23 @@ const Details = () => {
             <p className="text-sm md:text-lg mb-6">
               {new Date(data?.release_date).getFullYear()} • {translatedData.genres.slice(0, 2).join(", ")} • {formatTime(data?.runtime)}
             </p>
-            <button className="bg-orange-700 hover:bg-red-400 text-white py-3 px-16 rounded-md shadow-lg">
-            Buy a ticket
-            </button>
+            <div className="grid grid-cols-3 gap-6">
+              <button className="bg-orange-700 hover:bg-red-400 text-white py-3 px-8 rounded-md shadow-lg">
+              Buy a ticket
+              </button>
+              <button
+              className="bg-red-600 hover:bg-red-800 text-[18px] px-8 py-2 rounded-md"
+              onClick={() => handleOnlineClick(data.title)} 
+              >
+                Trailer
+              </button>
+              <button
+                className="bg-indigo-600 text-[18px] px-8 py-2 rounded-md hover:bg-indigo-900"
+                onClick={() => handleOnlineClick2(data.title)} 
+              >
+                Online
+              </button>
+            </div>
           </div>
         </div>
 
@@ -179,9 +204,17 @@ const Details = () => {
             <p className="mt-6 text-gray-400 leading-relaxed">{data?.overview}</p>
           </div>
 
-          <button className="mt-6 bg-fuchsia-800 hover:bg-red-600 w-full px-2 py-3 rounded-xl text-[20px]">
-          Buy a ticket
-          </button>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <button className="w-[60%] bg-fuchsia-800 hover:bg-red-600 px-2 py-3 rounded-md text-[20px]">
+            Buy a ticket
+            </button>
+            <button
+              onClick={() => navigate(-1)}
+              className="px-6 py-4 flex items-center gap-3 justify-center w-[30%] bg-violet-950 rounded-md"
+            >
+              <FaHome className="text-[20px]"/><span>Home</span>
+            </button>
+          </div>
         </div>
       </div>
 

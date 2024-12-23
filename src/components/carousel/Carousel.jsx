@@ -56,7 +56,7 @@ const Carousel = ({ data = { results: [] } }) => {
         {data.results.map((item) => (
           <SwiperSlide key={item.id}>
             <img
-              className="relative"
+              className="relative w-full h-[80vh]"
               src={`${import.meta.env.VITE_IMAGE_URL}${item?.backdrop_path}`}
               alt={item.title}
             />

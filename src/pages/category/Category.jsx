@@ -51,33 +51,44 @@ const Category = () => {
         <Genre data={genres} setSelectedGenre={setSelectedGenre} selectedGenre={selectedGenre}/>
         <Movies data={data}/>
         <div className="flex justify-center py-6">
-          <Pagination
-            page={page}
-            onChange={handleChange}
-            count={data?.total_pages <= 500 ? data?.total_pages : 500}
-            sx={{
-              "& .MuiPaginationItem-root": {
-                color: "#fff", // Text color
-                backgroundColor: "#1a1a1a", // Default button background
-                border: "1px solid #ff4040", // Red border for buttons
-                "&:hover": {
-                  backgroundColor: "#ff4040", // Red background on hover
-                  color: "#fff", // Keep text white
-                },
+        <Pagination
+          page={page}
+          onChange={handleChange}
+          count={data?.total_pages <= 500 ? data?.total_pages : 500}
+          sx={{
+            "& .MuiPaginationItem-root": {
+              color: "#fff",
+              backgroundColor: "#2c2c2c", // Dark gray background
+              border: "1px solid #444", // Soft border color
+              borderRadius: "8px", // Rounded corners for a smoother look
+              padding: "8px 16px", // Padding to make it more spacious
+              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Soft shadow for depth
+              transition: "background-color 0.3s, transform 0.2s", // Smooth transition for hover effects
+              "&:hover": {
+                backgroundColor: "#ff4040", // Red background on hover
+                color: "#fff", 
+                transform: "scale(1.1)", // Slight zoom effect on hover
               },
-              "& .Mui-selected": {
-                backgroundColor: "#ff4040", // Red background for selected page
-                color: "#fff", // White text for selected page
-                border: "1px solid #ff7373", // Slightly lighter border for the selected button
-                "&:hover": {
-                  backgroundColor: "#ff7373", // Even lighter red on hover
-                },
+            },
+            "& .Mui-selected": {
+              backgroundColor: "#ff4040", 
+              color: "#fff", 
+              border: "1px solid #ff7373", 
+              boxShadow: "0px 0px 10px rgba(255, 64, 64, 0.6)", // Glow effect for selected item
+              "&:hover": {
+                backgroundColor: "#ff7373", // Soft red on hover
               },
-              "& .MuiPaginationItem-ellipsis": {
-                color: "#ff7373", // Customize ellipsis color
-              },
-            }}
-          />
+            },
+            "& .MuiPaginationItem-ellipsis": {
+              color: "#ff7373", // Color for ellipsis (the "..." separator)
+              fontWeight: "bold", // Make ellipsis more prominent
+            },
+            "& .MuiPaginationItem-text": {
+              fontSize: "14px", // Adjust font size for better readability
+            },
+          }}
+        />
+
         </div>
         <div className='flex justify-center'>
             <button

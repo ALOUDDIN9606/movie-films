@@ -5,7 +5,7 @@ import { BiCategory } from "react-icons/bi";
 import { BiBookmarks } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import logo from '@/assets/img/logo (7).png';
-
+import { BiFolderPlus } from "react-icons/bi";
 const lang = [
     {
         label: 'Eng',
@@ -43,9 +43,9 @@ const Header = () => {
                     <BiCategory className='text-[24px]' />
                     <p className='text-[19px]'>Movies</p>
                 </Link>
-                <Link to={"/bilet"} className={`flex flex-wrap flex-col items-center ${getActiveClass("/bilet")}`}>
-                    <BiBookmarks className='text-[24px]' />
-                    <p className='text-[19px]'>Bilet</p>
+                <Link to={"/latest"} className={`flex flex-wrap flex-col items-center ${getActiveClass("/latest")}`}>
+                    <BiFolderPlus className='text-[24px]' />
+                    <p className='text-[19px]'>Saved</p>
                 </Link>
                 <Link to={"/search"} className={`flex flex-wrap flex-col items-center ${getActiveClass("/search")}`}>
                     <FiSearch className='text-[24px]' />

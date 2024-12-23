@@ -13,7 +13,7 @@ const Footer = () => {
     };
 
   return (
-    <div className='pb-12 container'>
+    <div className='py-12 container'>
         <div className=' bg-slate-900 grid grid-cols-4 gap-4 p-6 rounded-md'>
             <div className='flex flex-wrap flex-col justify-between gap-10'>
                 <img className='w-[60px]' src={img} alt="" />
