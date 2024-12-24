@@ -1,6 +1,8 @@
 import { useFavorites } from "@/components/saved/FavoritesContext";
 import React from "react";
 import { FaTrashCan } from "react-icons/fa6";
+import { FaRegBookmark, FaBookmark  } from "react-icons/fa";
+
 
 const Latest = () => {
   // Like bosilgan kinolarni oladi
@@ -31,7 +33,7 @@ const Latest = () => {
                   onClick={() => removeFromFavorites(movie)} 
                   className="text-white pr-2 rounded-full"
                 >
-                  <FaTrashCan className="text-[22px] text-white hover:text-red-700"/>
+                  <FaBookmark className="text-[22px] text-red-600"/>
                 </button>
               </div>
             </div>

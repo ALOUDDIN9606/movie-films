@@ -60,7 +60,7 @@ const Carousel = ({ data = { results: [] } }) => {
               src={`${import.meta.env.VITE_IMAGE_URL}${item?.backdrop_path}`}
               alt={item.title}
             />
-            <h2 className="absolute bottom-20 left-4 text-[35px]">
+            <h2 className="absolute bottom-20 left-4 text-[48px]">
               {item.title}
             </h2>
             <button
