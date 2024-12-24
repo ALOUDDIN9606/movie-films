@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { request } from "../../api";
 import { FaHome } from "react-icons/fa";
+import { TbArrowBackUp } from "react-icons/tb";
 
 const Details = () => {
   const { id } = useParams();
@@ -205,14 +206,14 @@ const Details = () => {
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <button className="w-[60%] bg-fuchsia-800 hover:bg-red-600 px-2 py-3 rounded-md text-[20px]">
+            <button className="w-[60%] bg-yellow-600 hover:bg-yellow-700 px-2 py-3 rounded-md text-[20px]">
             Buy a ticket
             </button>
             <button
               onClick={() => navigate(-1)}
-              className="px-6 py-4 flex items-center gap-3 justify-center w-[30%] bg-violet-950 rounded-md"
+              className="px-6 h-full py-3 flex items-center gap-3 justify-center w-[30%] bg-red-600 rounded-md hover:bg-red-700"
             >
-              <FaHome className="text-[20px]"/><span>Home</span>
+              <TbArrowBackUp className="text-[30px]"/>
             </button>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { useFavorites } from "@/components/saved/FavoritesContext";
 import React from "react";
-import { FaTrashCan } from "react-icons/fa6";
 import { FaRegBookmark, FaBookmark  } from "react-icons/fa";
 
 
@@ -10,7 +9,7 @@ const Latest = () => {
   return (
     <div className="py-6 container">
       {favorites.length === 0 ? (
-        <div className="flex items-center justify-center min-h-[500px]">
+        <div className="flex items-center justify-center min-h-[530px]">
           <div className="text-6xl text-gray-500">🙅‍♂️</div>
           <p className="text-lg text-gray-500">Sevimli filmlar hali yo'q.</p>
         </div>

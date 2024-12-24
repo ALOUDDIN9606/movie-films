@@ -1,5 +1,4 @@
 import React, { memo, useState, useEffect } from "react";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "@/components/saved/FavoritesContext";
 import { FaRegBookmark, FaBookmark  } from "react-icons/fa";
@@ -31,7 +30,7 @@ const Moviesitem = ({ id, title, poster_path, release_date }) => {
         alt={title}
         onClick={() => navigate(`/movie/${id}`)}
       />
-      <div className="flex items-center justify-between py-2">
+      <div className="flex items-center justify-between py-2 gap-4">
         <div>
           <p className="line-clamp-1 font-bold">{title}</p>
           <p className="text-slate-600 text-[14px] font-bold">{release_date}</p>
