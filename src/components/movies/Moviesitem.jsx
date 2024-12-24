@@ -2,6 +2,7 @@ import React, { memo, useState, useEffect } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "@/components/saved/FavoritesContext";
+import { FaRegBookmark, FaBookmark  } from "react-icons/fa";
 
 const Moviesitem = ({ id, title, poster_path, release_date }) => {
   const { favorites, addToFavorites, removeFromFavorites } = useFavorites();
@@ -37,9 +38,9 @@ const Moviesitem = ({ id, title, poster_path, release_date }) => {
         </div>
         <button onClick={toggleFavorite}>
           {isFavorite ? (
-            <AiFillHeart className="text-red-500 text-[28px]" />
+            <FaBookmark className="text-red-500 text-[25px]" />
           ) : (
-            <AiOutlineHeart className="text-gray-400 text-[28px]" />
+            <FaRegBookmark className="text-gray-400 text-[25px]" />
           )}
         </button>
       </div>
