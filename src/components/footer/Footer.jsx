@@ -13,8 +13,9 @@ const Footer = () => {
     };
 
   return (
-    <div className='py-12 container'>
-        <div className=' bg-slate-900 grid grid-cols-4 gap-4 p-6 rounded-md'>
+     <div className='bg-white dark:bg-black text-black dark:text-white'>
+          <div className='py-12 container'>
+        <div className='grid grid-cols-4 gap-4 p-6 rounded-md bg-slate-200 dark:bg-slate-900 text-black dark:text-white'>
             <div className='flex flex-wrap flex-col justify-between gap-10'>
                 <img className='w-[60px]' src={img} alt="" />
                 <div className='flex flex-wrap flex-col gap-4'>
@@ -105,6 +106,7 @@ const Footer = () => {
             </div>
         </div>
     </div>
+     </div>
   )
 }
 

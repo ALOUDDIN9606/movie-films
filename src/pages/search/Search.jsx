@@ -28,7 +28,8 @@ const Search = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+     <div className="bg-white dark:bg-black text-white dark:text-white">
+          <div className="container mx-auto px-4 py-8">
       <form
         onSubmit={handleSearch}
         className="border rounded-lg shadow-md bg-white p-4 max-w-[800px] mx-auto flex items-center gap-4"
@@ -79,6 +80,7 @@ const Search = () => {
         {!isLoading && data?.results?.length > 0 && <Movies data={data} />}
       </div>
     </div>
+     </div>
   );
 };
 

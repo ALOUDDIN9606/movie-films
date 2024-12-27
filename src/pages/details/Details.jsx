@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { request } from "../../api";
 import { FaHome } from "react-icons/fa";
 import { TbArrowBackUp } from "react-icons/tb";
@@ -7,6 +7,7 @@ import { TbArrowBackUp } from "react-icons/tb";
 const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation()
 
   const [data, setData] = useState(null);
   const [similar, setSimilar] = useState([]);
@@ -17,6 +18,10 @@ const Details = () => {
     jobs: [],
     casts: [],
   });
+
+  const handleBack = () => {
+    navigate(-1, { state: location.state });
+  };
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -111,9 +116,9 @@ const Details = () => {
   };
 
   return (
-    <div className="bg-black text-white">
+    <div className=" bg-white dark:bg-black text-black dark:text-white">
       <div className="flex flex-col items-center">
-        <div className="w-full max-w-[1360px] h-[640px] relative">
+        <div className="w-full max-w-[1360px] h-[640px] relative bg-white dark:bg-black text-white dark:text-white">
           <img
             className="w-full h-full object-cover rounded-xl shadow-lg"
             src={`${import.meta.env.VITE_IMAGE_URL}${data?.backdrop_path}`}
@@ -127,7 +132,7 @@ const Details = () => {
             <p className="text-sm md:text-lg mb-6">
               {new Date(data?.release_date).getFullYear()} • {translatedData.genres.slice(0, 2).join(", ")} • {formatTime(data?.runtime)}
             </p>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-6 ">
               <button className="bg-orange-700 hover:bg-red-400 text-white py-3 px-8 rounded-md shadow-lg">
               Buy a ticket
               </button>
@@ -147,8 +152,8 @@ const Details = () => {
           </div>
         </div>
 
-        <div className="detail-list w-full max-w-[450px] mt-12 mb-10 flex flex-wrap flex-col">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="detail-list w-full max-w-[450px] mt-12 mb-10 flex flex-wrap flex-col ">
+          <div className="grid grid-cols-2 gap-4 bg-white dark:bg-black text-white dark:text-white">
             <button className="bg-[#111111] py-4 border px-2 rounded-lg font-semibold hover:bg-violet-900 transition">
             Tickets
             </button>
@@ -210,7 +215,7 @@ const Details = () => {
             Buy a ticket
             </button>
             <button
-              onClick={() => navigate(-1)}
+              onClick={handleBack}
               className="px-6 h-full py-3 flex items-center gap-3 justify-center w-[30%] bg-red-600 rounded-md hover:bg-red-700"
             >
               <TbArrowBackUp className="text-[30px]"/>

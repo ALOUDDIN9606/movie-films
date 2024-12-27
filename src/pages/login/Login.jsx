@@ -91,7 +91,7 @@ const Login = () => {
         </p>
       </div>
         <div className="text-center pt-8 flex justify-end absolute top-0 right-10">
-            <button onClick={() => navigate("/")} className="px-6 text-[20px] py-2 rounded-md hover:bg-red-900 border flex items-center gap-2"><FaHome/> <span>Home</span></button>
+            <button onClick={() => navigate("/")} className="px-6 hover:text-white text-[20px] py-2 rounded-md hover:bg-red-900 border-2 flex items-center gap-2 "><FaHome/> <span>Home</span></button>
         </div>
     </div>
   );

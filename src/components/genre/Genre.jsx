@@ -18,9 +18,9 @@ const Genre = ({ data, setSelectedGenre, selectedGenre }) => {
           <div
             onClick={() => handleChange(item.id)}
             key={item.id}
-            className={`whitespace-nowrap px-4 py-2 border border-[#C61F1F] text-white rounded-full hover:cursor-pointer select-none
-              ${selectedGenre.includes(item.id) ? "bg-[#C61F1F] text-white shadow-lg" : "bg-[#333]"}
-              transition-all duration-200 ease-in-out transform hover:scale-105`}
+            className={`whitespace-nowrap px-4 py-2 border border-[#C61F1F] text-black rounded-full hover:cursor-pointer select-none
+              ${selectedGenre.includes(item.id) ? "bg-[#C61F1F] text-red-600 font-bold dark:bg-red-600 shadow-lg" : "bg-[#333]"}
+              transition-all duration-200 ease-in-out transform hover:scale-105 bg-white dark:bg-black text-black dark:text-white`}
           >
             {item.name}
           </div>

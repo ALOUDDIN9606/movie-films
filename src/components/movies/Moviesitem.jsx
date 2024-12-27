@@ -23,7 +23,7 @@ const Moviesitem = ({ id, title, poster_path, release_date }) => {
   };
 
   return (
-    <div className="bg-slate-900 rounded-xl p-2 min-h-[500px]">
+    <div className="rounded-xl p-2  bg-slate-200 dark:bg-slate-900 text-black dark:text-white">
       <img
         className="rounded-md cursor-pointer"
         src={`${import.meta.env.VITE_IMAGE_URL}${poster_path}`}

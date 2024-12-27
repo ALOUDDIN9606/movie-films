@@ -7,7 +7,8 @@ const Latest = () => {
   // Like bosilgan kinolarni oladi
   const { favorites, removeFromFavorites } = useFavorites(); 
   return (
-    <div className="py-6 container">
+      <div className="bg-white dark:bg-black text-white dark:text-white">
+          <div className="py-6 container">
       {favorites.length === 0 ? (
         <div className="flex items-center justify-center min-h-[530px]">
           <div className="text-6xl text-gray-500">🙅‍♂️</div>
@@ -16,7 +17,7 @@ const Latest = () => {
       ) : (
         <div className="grid grid-cols-4 gap-5">
           {favorites.map((movie) => (
-            <div key={movie.id} className="bg-slate-900 rounded-xl p-2 relative">
+            <div key={movie.id} className="bg-slate-200 rounded-xl p-2 relative dark:bg-slate-900 text-white dark:text-white">
               <img
                 className="rounded-md"
                 src={`${import.meta.env.VITE_IMAGE_URL}${movie.poster_path}`}
@@ -40,6 +41,7 @@ const Latest = () => {
         </div>
       )}
     </div>
+      </div>
   );
 };
 

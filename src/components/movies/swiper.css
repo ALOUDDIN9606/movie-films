@@ -27,3 +27,8 @@
   padding: 10px 0;
   
 }
+.MoviesSwiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
